@@ -1,1 +1,448 @@
-/* CSS Styling */
+/* ============================================
+   Electrical Formula Toolkit - Styles
+   ============================================ */
+
+:root {
+    --bg-primary: #0a0e1a;
+    --bg-secondary: #111827;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent-yellow: #fbbf24;
+    --accent-blue: #3b82f6;
+    --accent-green: #22c55e;
+    --accent-red: #ef4444;
+    --accent-purple: #a855f7;
+    --accent-cyan: #06b6d4;
+    --accent-orange: #f97316;
+    --glow-yellow: rgba(251, 191, 36, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Animated Background */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #0a0e1a 0%, #1a1040 30%, #0d1b2a 60%, #0a0e1a 100%);
+}
+
+.lightning {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--accent-yellow), transparent);
+    opacity: 0;
+    animation: lightningFlash 4s infinite;
+}
+
+.lightning-1 { left: 20%; top: 10%; animation-delay: 0s; }
+.lightning-2 { left: 60%; top: 5%; animation-delay: 1.5s; }
+.lightning-3 { left: 80%; top: 15%; animation-delay: 3s; }
+
+@keyframes lightningFlash {
+    0%, 95%, 100% { opacity: 0; }
+    96%, 98% { opacity: 0.6; }
+    97% { opacity: 1; }
+}
+
+/* Text utilities */
+.text-light-muted { color: var(--text-muted) !important; }
+.text-purple { color: var(--accent-purple) !important; }
+.text-cyan { color: var(--accent-cyan) !important; }
+.text-orange { color: var(--accent-orange) !important; }
+
+/* Glass Navbar */
+.glass-nav {
+    background: rgba(10, 14, 26, 0.85) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+}
+
+.nav-link {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-yellow) !important;
+    background: rgba(251, 191, 36, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 140px 0 60px;
+    text-align: center;
+}
+
+.hero-icon {
+    font-size: 4rem;
+    color: var(--accent-yellow);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--glow-yellow)); }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 25px var(--glow-yellow)); }
+}
+
+.stat-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Glass Cards */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(251, 191, 36, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card-sm {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+}
+
+/* Glass Input */
+.glass-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: var(--text-primary) !important;
+    border-radius: 10px !important;
+    padding: 0.6rem 1rem !important;
+    transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+    border-color: var(--accent-yellow) !important;
+    box-shadow: 0 0 0 3px var(--glow-yellow) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.glass-input::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.7;
+}
+
+.form-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.form-select option {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* Formula Buttons */
+.btn-formula {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-formula:hover {
+    background: rgba(251, 191, 36, 0.1);
+    border-color: var(--accent-yellow);
+    color: var(--accent-yellow);
+    transform: translateY(-1px);
+}
+
+.btn-formula.active {
+    background: rgba(251, 191, 36, 0.15);
+    border-color: var(--accent-yellow);
+    color: var(--accent-yellow);
+    box-shadow: 0 0 15px var(--glow-yellow);
+}
+
+/* Calculate Button */
+.btn-calculate {
+    background: linear-gradient(135deg, var(--accent-yellow), #f59e0b);
+    border: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-calculate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--glow-yellow);
+    color: #000;
+}
+
+.btn-calculate:active {
+    transform: translateY(0);
+}
+
+/* Section Padding */
+.section-padding {
+    padding: 40px 0 80px;
+}
+
+/* Calc Cards */
+.calc-card {
+    display: none;
+}
+
+.calc-card.active {
+    display: block;
+    animation: fadeSlideIn 0.4s ease;
+}
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Formula Display */
+.formula-display {
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.formula-equation {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent-yellow);
+    text-shadow: 0 0 20px var(--glow-yellow);
+    letter-spacing: 2px;
+}
+
+/* Result Display */
+.result-display {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    animation: fadeSlideIn 0.3s ease;
+}
+
+.result-display .result-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+}
+
+.result-display .result-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-green);
+    text-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+}
+
+.result-display .result-formula {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+/* Converter Cards */
+.converter-card {
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.converter-card:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.converter-icon {
+    font-size: 2.5rem;
+}
+
+/* Formula Table */
+.formula-table {
+    background: transparent !important;
+    font-size: 0.9rem;
+}
+
+.formula-table th {
+    color: var(--accent-yellow);
+    font-weight: 600;
+    border-color: var(--glass-border);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.formula-table td {
+    border-color: var(--glass-border);
+    vertical-align: middle;
+    padding: 0.8rem;
+}
+
+.formula-table tr {
+    transition: all 0.2s ease;
+}
+
+.formula-table tbody tr:hover {
+    background: rgba(251, 191, 36, 0.05) !important;
+}
+
+.formula-table .formula-cell {
+    font-family: 'Courier New', monospace;
+    color: var(--accent-yellow);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cat-dc { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); }
+.cat-ac { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); }
+.cat-power { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }
+.cat-capacitor { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
+.cat-inductor { background: rgba(249, 115, 22, 0.15); color: var(--accent-orange); }
+
+/* History Items */
+.history-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    animation: fadeSlideIn 0.3s ease;
+}
+
+.history-item:hover {
+    border-color: rgba(251, 191, 36, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.history-item .history-formula {
+    font-weight: 600;
+    color: var(--accent-yellow);
+    font-size: 0.9rem;
+}
+
+.history-item .history-detail {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.history-item .history-result {
+    font-weight: 700;
+    color: var(--accent-green);
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+.history-item .history-time {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+    text-align: right;
+}
+
+.history-item .btn-delete-history {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    margin-left: 0.5rem;
+}
+
+.history-item .btn-delete-history:hover {
+    color: var(--accent-red);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section { padding: 120px 0 40px; }
+    .hero-icon { font-size: 3rem; }
+    .display-4 { font-size: 1.8rem; }
+    .formula-equation { font-size: 1.4rem; }
+    .result-display .result-value { font-size: 1.5rem; }
+    .section-padding { padding: 30px 0 60px; }
+    .stat-badge { font-size: 0.75rem; }
+    .btn-formula { font-size: 0.72rem; padding: 0.4rem 0.8rem; }
+}
+
+/* Toast */
+.toast {
+    border-radius: 12px !important;
+}
