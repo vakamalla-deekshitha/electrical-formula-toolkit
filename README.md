@@ -1,3 +1,3 @@
 # electrical-formula-toolkit
 
-Initial repository setup.
+Complete project details.
